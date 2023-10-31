@@ -30,9 +30,9 @@ body {
   font-size: 20px; /* Adjust the font size as needed */
 }
 .search {
-  flex: 5; /* Take up all available space */
   text-align: left;
   font-size: 20px; /* Adjust the font size as needed */
+  margin: 20px;
 }
 
 .ContributionCalendar-label li {
@@ -49,7 +49,7 @@ body {
 input {
   background-color: #010409; /* Change this to your desired background color */
   color: #fff;
-  padding: 10px 30px;
+  padding: 10px 11px;
   border: 0;
   box-shadow: 0 0 0.06rem #e1e4e8;
   border-radius: 10px;
@@ -62,19 +62,82 @@ button {
   border: 0;
   box-shadow: 0 0 0.06rem #e1e4e8;
   border-radius: 10px;
-  padding: 10px 20px;
-  margin-left: 10px;
+  padding: 10px 7px;
   font-size: 16px;
 }
-
 #user-info {
-  background-color: #333;
+  background-color: #0d1117;
   color: #fff;
   margin: 20px;
   padding: 20px;
-  border: 1px solid #555;
+  border: 0;
+  box-shadow: 0 0 0.06rem #e1e4e8;
+  border-radius: 10px;
+  max-width: 500px;
+}
+#profile-image {
+  border-radius: 50%;
+}
+.profile-stats-wrapper {
+  display: flex;
+  justify-content: space-between;
+  background-color: #161b22;
+  text-align: center;
+  border-radius: 10px;
+  padding: 18px;
+  margin-top: 10px;
+}
+.profile-stat {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 8px;
+}
+.stat-title {
+  font-size: 11px;
+}
+.stat-value {
+  font-size: 16px;
+  font-weight: bold;
+  color: var(--lm-text-alt);
+}
+.profile-header {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 10px;
 }
 
+#avatar {
+  width: 109px;
+  border-radius: 90px;
+}
+
+.profile-name {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.profile-name h2 {
+  font-size: 16px;
+  font-weight: bold;
+  color: var(--lm-text-alt);
+}
+
+#user {
+  color: var(--btn);
+}
+
+.profile-info-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+#bio {
+  line-height: 25px;
+  opacity: 0.75;
+}
 /* Reverting the colors of GitHub contribution graph */
 .squares li {
   background-color: #000;
@@ -172,9 +235,6 @@ ul {
   background-color: #93e7a2;
 }
 
- {
-  background-color: #3ebe5e;
-}
 /* Set colors for levels 15 to 50 */
 .squares li[data-level='11'],
 .squares li[data-level='12'],

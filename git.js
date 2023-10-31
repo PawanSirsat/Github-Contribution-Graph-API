@@ -1,6 +1,20 @@
-let githubToken = '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'
+let githubToken = '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'
 let githubUsername = 'PawanSirsat'
 let squares = document.querySelector('.squares')
+const months = [
+  'Jan',
+  'Feb',
+  'Mar',
+  'Apr',
+  'May',
+  'Jun',
+  'Jul',
+  'Aug',
+  'Sep',
+  'Oct',
+  'Nov',
+  'Dec',
+]
 
 document.addEventListener('DOMContentLoaded', function () {
   const fetchButton = document.getElementById('fetch-button')
@@ -12,12 +26,46 @@ document.addEventListener('DOMContentLoaded', function () {
       fetch(`https://api.github.com/users/${username}`)
         .then((response) => response.json())
         .then((data) => {
-          userInfoDiv.innerHTML = `
-            <h2>${data.name}</h2>
-            <img src="${data.avatar_url}" alt="${data.login}" width="100">
-            <p>Username: ${data.login}</p>
-            <p>Followers: ${data.followers}</p>
-            <p>Following: ${data.following}</p>
+          datesegments = data.created_at.split('T').shift().split('-')
+
+          userInfoDiv.innerHTML = ` <div class="profile-header">
+                            <img id="avatar" src="${data.avatar_url}" alt="">
+                            <div class="profile-info-wrapper">
+                                <div class="profile-name">
+                                    <h2 id="name">${data.name}</h2>
+                                    <a href="${
+                                      data.html_url
+                                    }" target="_blank" rel="noopener noreferrer" id="user">@${
+            data.login
+          }</a>
+                                </div>
+                                <p id="date">Joined ${datesegments[2]} ${
+            months[datesegments[1] - 1]
+          } ${datesegments[0]}</p>
+                            </div>
+                        </div>
+
+            <div class="profile-stats-wrapper">
+                            <div class="profile-stat">
+                                <p class="stat-title">Repos</p>
+                                <p id="repos" class="stat-value">${
+                                  data.public_repos
+                                }</p>
+                            </div>
+                            <div class="profile-stat">
+                                <p class="stat-title">Followers</p>
+                                <p id="followers" class="stat-value">${
+                                  data.followers
+                                }</p>
+                            </div>
+                            <div class="profile-stat">
+                                <p class="stat-title">Following</p>
+                                <p id="following" class="stat-value">${
+                                  data.following
+                                }</p>
+                            </div>
+                        </div>
+            
           `
         })
         .catch((error) => {
