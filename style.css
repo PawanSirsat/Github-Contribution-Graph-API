@@ -111,7 +111,10 @@ button {
   width: 109px;
   border-radius: 90px;
 }
-
+#bio {
+  line-height: 25px;
+  opacity: 0.75;
+}
 .profile-name {
   display: flex;
   flex-direction: column;
@@ -138,6 +141,45 @@ button {
   line-height: 25px;
   opacity: 0.75;
 }
+.profile-bottom-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 16px 0;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+.profile-info {
+  width: 50%;
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  align-items: center;
+}
+
+.bottom-icons {
+  width: 20px;
+  filter: var(--lm-icon-bg);
+}
+
+.profile-info p {
+  overflow-wrap: break-word;
+}
+
+.profile-info a {
+  color: var(--lm-text);
+  word-break: break-all;
+}
+
+.error {
+  position: absolute;
+  color: red;
+  font-weight: bold;
+  right: 10px;
+  top: -25px;
+}
+
 /* Reverting the colors of GitHub contribution graph */
 .squares li {
   background-color: #000;
@@ -159,12 +201,27 @@ button {
 }
 
 .graph {
-  display: inline-grid;
+  display: grid;
   grid-template-areas:
     'empty months'
     'days squares';
   grid-template-columns: auto 1fr;
   grid-gap: 10px;
+}
+.graph.ContributionCalendar-label {
+  max-width: 500px;
+  overflow-x: auto;
+  white-space: nowrap; /* Prevent line breaks within the container */
+}
+
+/* Optionally, you can also style the scrollbar to make it more visible */
+.graph.ContributionCalendar-label::-webkit-scrollbar {
+  width: 12px;
+}
+
+.graph.ContributionCalendar-label::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 6px;
 }
 
 .months {

@@ -1,4 +1,5 @@
-let githubToken = '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'
+let githubToken =
+  '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'
 let githubUsername = 'PawanSirsat'
 let squares = document.querySelector('.squares')
 const months = [
@@ -44,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function () {
           } ${datesegments[0]}</p>
                             </div>
                         </div>
-
+<p id="bio">${data.bio}</p>
             <div class="profile-stats-wrapper">
                             <div class="profile-stat">
                                 <p class="stat-title">Repos</p>
@@ -65,7 +66,24 @@ document.addEventListener('DOMContentLoaded', function () {
                                 }</p>
                             </div>
                         </div>
-            
+            <div class="profile-bottom-wrapper">
+                            <div class="profile-info">
+                                <div class="bottom-icons" style="opacity: 0.5;"><img width="20" height="20" src="https://img.icons8.com/ios-filled/50/FFFFFF/marker.png" alt="marker"/></div>
+                                <p id="location" style="opacity: 0.5;">Pune</p>
+                            </div>
+                            <div class="profile-info">
+                                <div class="bottom-icons" style="opacity: 0.5;"><img width="20" height="20" src="https://img.icons8.com/ios-filled/50/FFFFFF/link--v1.png" alt="link--v1"/></div>
+                                <a href="https://pawansirsat.github.io/Portfolio-Website/" id="page" style="opacity: 0.5;">https://pawansirsat.github.io/Portfolio-Website/</a>
+                            </div>
+                            <div class="profile-info">
+                                <div class="bottom-icons"><img width="20" height="20" src="https://img.icons8.com/ios-filled/50/FFFFFF/twitter.png" alt="twitter"/></div>
+                                <a href="https://twitter.com/sirsat_pawan" id="twitter">sirsat_pawan</a>
+                            </div>
+                            <div class="profile-info">
+                                <div class="bottom-icons" style="opacity: 0.5;"><img width="20" height="20" src="https://img.icons8.com/pastel-glyph/64/FFFFFF/company--v1.png" alt="company--v1"/></div>
+                                <p id="company" style="opacity: 0.5;">Not Available</p>
+                            </div>
+                        </div>
           `
         })
         .catch((error) => {
@@ -135,7 +153,6 @@ async function getGitHubContributions() {
       const contributionCount = contribution.contributionCount
       const square = document.createElement('li')
       square.dataset.level = contributionCount
-      console.log(`${contributionCount}`)
       squares.appendChild(square)
     })
   } catch (error) {
@@ -144,3 +161,10 @@ async function getGitHubContributions() {
 }
 
 getGitHubContributions()
+// JavaScript code to scroll the container to the right on page load
+window.addEventListener('load', function () {
+  const container = document.querySelector('.graph.ContributionCalendar-label')
+  if (container) {
+    container.scrollLeft = container.scrollWidth // Scroll to the maximum right position
+  }
+})
