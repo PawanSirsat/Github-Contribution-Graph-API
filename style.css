@@ -5,6 +5,36 @@ body {
     Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
   font-size: 12px;
 }
+
+.navbar {
+  display: flex;
+  align-items: center;
+  background-color: #010409; /* Change this to your desired background color */
+  color: #fff; /* Change this to your desired text color */
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.navbar-logo {
+  margin-right: 10px;
+}
+
+.navbar-logo img {
+  width: 40px; /* Adjust the width as needed */
+  height: auto;
+}
+
+.navbar-text {
+  flex: 1; /* Take up all available space */
+  text-align: left;
+  font-size: 20px; /* Adjust the font size as needed */
+}
+.search {
+  flex: 5; /* Take up all available space */
+  text-align: left;
+  font-size: 20px; /* Adjust the font size as needed */
+}
+
 .ContributionCalendar-label li {
   border-radius: 4px;
 
@@ -15,24 +45,25 @@ body {
   text-align: left;
   fill: var(--fgColor-default, var(--color-fg-default));
 }
-h1 {
-  background-color: #000;
-  color: #fff;
-  padding: 10px;
-}
 
 input {
-  background-color: #333;
+  background-color: #010409; /* Change this to your desired background color */
   color: #fff;
-  padding: 5px;
+  padding: 10px 30px;
+  border: 0;
+  box-shadow: 0 0 0.06rem #e1e4e8;
+  border-radius: 10px;
   font-size: 16px;
-  margin: 10px;
 }
 
 button {
-  background-color: #333;
+  background-color: #010409; /* Change this to your desired background color */
   color: #fff;
-  padding: 5px 10px;
+  border: 0;
+  box-shadow: 0 0 0.06rem #e1e4e8;
+  border-radius: 10px;
+  padding: 10px 20px;
+  margin-left: 10px;
   font-size: 16px;
 }
 

@@ -9,10 +9,20 @@
 </head>
 
 <body>
- <h1><img width="40" height="40" src="https://img.icons8.com/glyph-neue/64/FFFFFF/github.png" alt="github" />
-  GitHub User Info</h1>
- <input type="text" id="username" placeholder="Enter GitHub Username">
- <button id="fetch-button">Fetch</button>
+ <nav class="navbar">
+  <div class="navbar-logo">
+   <img src="https://img.icons8.com/glyph-neue/64/FFFFFF/github.png" alt="Logo">
+  </div>
+  <div class="navbar-text">
+   GitHub User Info
+  </div>
+  <div class="search">
+   <input type="text" id="username" placeholder="Enter GitHub Username">
+   <button id="fetch-button">Search</button>
+  </div>
+ </nav>
+
+
  <div id="user-info"></div>
  <div class="graph ContributionCalendar-label">
   <ul class="months">
