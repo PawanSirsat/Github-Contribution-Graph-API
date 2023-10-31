@@ -1,7 +1,53 @@
-/* Article - https://bitsofco.de/github-contribution-graph-css-grid/ */
+body {
+  background-color: #0d1117;
+  color: #fff;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans',
+    Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
+  font-size: 12px;
+}
+.ContributionCalendar-label li {
+  border-radius: 4px;
 
-/* Grid-related CSS */
+  padding: 0.125em 0.5em 0.125em 0;
+  font-size: 12px;
+  font-weight: var(--base-text-weight-normal, 400);
+  color: var(--fgColor-default, var(--color-fg-default));
+  text-align: left;
+  fill: var(--fgColor-default, var(--color-fg-default));
+}
+h1 {
+  background-color: #000;
+  color: #fff;
+  padding: 10px;
+}
 
+input {
+  background-color: #333;
+  color: #fff;
+  padding: 5px;
+  font-size: 16px;
+  margin: 10px;
+}
+
+button {
+  background-color: #333;
+  color: #fff;
+  padding: 5px 10px;
+  font-size: 16px;
+}
+
+#user-info {
+  background-color: #333;
+  color: #fff;
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #555;
+}
+
+/* Reverting the colors of GitHub contribution graph */
+.squares li {
+  background-color: #000;
+}
 :root {
   --square-size: 15px;
   --square-gap: 5px;
@@ -68,7 +114,9 @@ ul {
 }
 .graph {
   padding: 20px;
-  border: 1px #e1e4e8 solid;
+  border: 0;
+  box-shadow: 0 0 0.06rem #e1e4e8;
+  border-radius: 10px;
   margin: 20px;
 }
 
@@ -77,33 +125,30 @@ ul {
 }
 
 .squares li {
-  background-color: #ebedf0;
+  background-color: #161b22;
 }
 
 .squares li[data-level='1'],
 .squares li[data-level='2'],
 .squares li[data-level='3'],
 .squares li[data-level='4'],
-.squares li[data-level='5'] {
-  background-color: #bcf369;
-}
-
+.squares li[data-level='5'],
 .squares li[data-level='6'],
 .squares li[data-level='7'],
 .squares li[data-level='8'],
 .squares li[data-level='9'],
 .squares li[data-level='10'] {
-  background-color: #88d748;
+  background-color: #93e7a2;
 }
 
+ {
+  background-color: #3ebe5e;
+}
+/* Set colors for levels 15 to 50 */
 .squares li[data-level='11'],
 .squares li[data-level='12'],
 .squares li[data-level='13'],
 .squares li[data-level='14'],
-.squares li[data-level='15'] {
-  background-color: #60ab42;
-}
-/* Set colors for levels 15 to 50 */
 .squares li[data-level='15'],
 .squares li[data-level='16'],
 .squares li[data-level='17'],
@@ -131,7 +176,7 @@ ul {
 .squares li[data-level='37'],
 .squares li[data-level='38'],
 .squares li[data-level='39'] {
-  background-color: #2b7d3e;
+  background-color: #2f984a;
 }
 
 .squares li[data-level='40'],
@@ -145,5 +190,5 @@ ul {
 .squares li[data-level='48'],
 .squares li[data-level='49'],
 .squares li[data-level='50'] {
-  background-color: #147528;
+  background-color: #216435;
 }
