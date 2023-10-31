@@ -31,7 +31,9 @@ This web application allows users to search for GitHub users and view comprehens
 
 2. Open the project folder in your code editor.
 
-3. Open the `app.html` file in your web browser to run the application.
+3. Open the `index.html` file in your web browser to run the application.
+
+4. Generate Your Own Tokken For Contribution Calendar Data (Replace With my Tokken Present in git.js)
 
 ## Technologies Used
 
@@ -51,12 +53,6 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 - The application was built as a project for learning web development and GitHub API integration.
 - Thanks to [GitHub](https://github.com) for providing the API and hosting for open-source projects.
-
-## Screenshots
-
-![Screenshot 1](screenshot1.png)
-![Screenshot 2](screenshot2.png)
-![Screenshot 3](screenshot3.png)
 
 ---
 
