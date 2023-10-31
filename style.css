@@ -6,6 +6,12 @@ body {
   font-size: 12px;
 }
 
+.cen-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap; /* Allow the two containers to wrap to a new line on smaller screens */
+}
 .navbar {
   overflow: hidden;
   display: flex;
@@ -32,6 +38,10 @@ body {
   font-size: 20px; /* Adjust the font size as needed */
 }
 .search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
   text-align: left;
   font-size: 20px; /* Adjust the font size as needed */
   margin: 20px;
@@ -59,13 +69,14 @@ input {
 }
 
 button {
-  background-color: #010409; /* Change this to your desired background color */
+  background-color: #161b22; /* Change this to your desired background color */
   color: #fff;
   border: 0;
   box-shadow: 0 0 0.06rem #e1e4e8;
   border-radius: 10px;
   padding: 10px 7px;
   font-size: 16px;
+  margin-left: 10px;
 }
 #user-info {
   background-color: #0d1117;
@@ -86,7 +97,7 @@ button {
   background-color: #161b22;
   text-align: center;
   border-radius: 10px;
-  padding: 18px;
+  padding: 10px;
   margin-top: 10px;
 }
 .profile-stat {
@@ -150,6 +161,7 @@ button {
   gap: 16px 0;
   flex-wrap: wrap;
   flex-direction: row;
+  margin-top: 8px;
 }
 
 .profile-info {
