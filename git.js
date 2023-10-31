@@ -1,5 +1,5 @@
 let githubToken =
-  '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'
+  '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'
 let githubUsername = 'PawanSirsat'
 let squares = document.querySelector('.squares')
 const months = [
