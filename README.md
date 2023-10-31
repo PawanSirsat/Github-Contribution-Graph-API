@@ -1,7 +1,7 @@
 # GitHub User Info and Contribution Calendar Viewer
 
-![GitHub User Info and Contribution Calendar Viewer](![image](https://github.com/PawanSirsat/Github-Contribution-Graph-API/assets/48860105/798705f6-0e33-4029-9828-856fe42b6038)
-)
+![image](https://github.com/PawanSirsat/Github-Contribution-Graph-API/assets/48860105/de85e379-eabe-4757-aae6-8de38f2e687a)
+
 
 ## Overview
 
