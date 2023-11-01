@@ -285,7 +285,22 @@ ul {
   border-radius: 10px;
   margin: 20px;
 }
-
+.mp {
+  display: grid;
+  grid-template-areas:
+    'empty months'
+    'days squares';
+  grid-template-columns: auto 1fr;
+  grid-gap: 10px;
+}
+#user-contribution {
+  font-size: 18px;
+  margin-left: 25px;
+}
+#user-contribution a {
+  color: #fff;
+  font-weight: 500;
+}
 .days li:nth-child(odd) {
   visibility: hidden;
 }

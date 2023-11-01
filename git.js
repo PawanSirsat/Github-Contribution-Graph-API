@@ -1,6 +1,7 @@
 let githubToken = 'dsds'
 let githubUsername = 'PawanSirsat'
 let squares = document.querySelector('.squares')
+let userAPI = ''
 const months = [
   'Jan',
   'Feb',
@@ -22,20 +23,12 @@ document.addEventListener('DOMContentLoaded', function () {
   const userInfoDiv = document.getElementById('user-info')
 
   async function getUserData(username) {
-    const response2 = await fetch('contributions.json')
-    if (!response2.ok) {
-      throw new Error('Failed to fetch JSON data')
-    }
-    const data1 = await response2.json()
-    console.log(data1)
-    const countributions = data1.years
-
     if (username) {
       fetch(`https://api.github.com/users/${username}`)
         .then((response) => response.json())
         .then((data) => {
           datesegments = data.created_at.split('T').shift().split('-')
-
+          userAPI = data
           console.log(data)
           userInfoDiv.innerHTML = ` <div class="profile-header">
                             <img id="avatar" src="${data.avatar_url}" alt="">
@@ -59,12 +52,6 @@ document.addEventListener('DOMContentLoaded', function () {
                                 <p class="stat-title">Repos</p>
                                 <p id="repos" class="stat-value">${
                                   data.public_repos
-                                }</p>
-                            </div>
-                             <div class="profile-stat">
-                                <p class="stat-title">${data1.years[0].year}</p>
-                                <p id="repos" class="stat-value">${
-                                  data1.years[0].total
                                 }</p>
                             </div>
                             <div class="profile-stat">
@@ -120,35 +107,36 @@ document.addEventListener('DOMContentLoaded', function () {
     const username = usernameInput.value
     squares.innerHTML = ''
     githubUsername = username
-    getGitHubContributions()
     getUserData(username)
   })
 
   // Automatically load data for a default GitHub user when the page loads
   const defaultUsername = 'PawanSirsat'
   getUserData(defaultUsername)
+  getGitHubContributions()
 })
 
-let query = `
-        query($userName: String!) {
-            user(login: $userName) {
-                contributionsCollection {
-                    contributionCalendar {
-                        totalContributions
-                        weeks {
-                            contributionDays {
-                                contributionCount
-                                date
-                            }
-                        }
-                    }
-                }
-            }
-        }
-        `
+// let query = `
+//         query($userName: String!) {
+//             user(login: $userName) {
+//                 contributionsCollection {
+//                     contributionCalendar {
+//                         totalContributions
+//                         weeks {
+//                             contributionDays {
+//                                 contributionCount
+//                                 date
+//                             }
+//                         }
+//                     }
+//                 }
+//             }
+//         }
+//         `
 
 async function getGitHubContributions() {
   try {
+    const userContDiv = document.getElementById('user-contribution')
     const response = await fetch('contributions.json') // Assuming the JSON file is in the same directory
     if (!response.ok) {
       throw new Error('Failed to fetch JSON data')
@@ -156,6 +144,8 @@ async function getGitHubContributions() {
 
     const data = await response.json()
     const contributions = data.contributions.reverse() // Reverse the order of contributions
+    const uyear = data.years[0].year
+    const ucount = data.years[0].total
 
     contributions.forEach((contribution) => {
       const date = new Date(contribution.date)
@@ -166,12 +156,16 @@ async function getGitHubContributions() {
       square.style.backgroundColor = contribution.color
       squares.appendChild(square)
     })
+    userContDiv.innerHTML = `
+    
+    <span>${ucount} contributions in ${uyear}</span>
+   <a href="${userAPI.html_url}" id="user-href" target="_blank" >@${userAPI.login}</a>
+    `
   } catch (error) {
     console.error('Error loading JSON data:', error)
   }
 }
 
-getGitHubContributions()
 // JavaScript code to scroll the container to the right on page load
 window.addEventListener('load', function () {
   const container = document.querySelector('.graph.ContributionCalendar-label')
