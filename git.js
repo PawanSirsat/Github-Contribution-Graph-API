@@ -1,4 +1,4 @@
-let githubToken = process.env.TOKEN_API
+let githubToken = {{process.env.TOKEN_API}}
 let githubUsername = 'PawanSirsat'
 let squares = document.querySelector('.squares')
 const months = [
