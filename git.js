@@ -1,4 +1,4 @@
-let githubToken = process.env.TOKEN_API
+let githubToken = 'dsds'
 let githubUsername = 'PawanSirsat'
 let squares = document.querySelector('.squares')
 const months = [
@@ -15,6 +15,7 @@ const months = [
   'Nov',
   'Dec',
 ]
+// Fetch the contribution data for the user PawanSirsat
 
 document.addEventListener('DOMContentLoaded', function () {
   const fetchButton = document.getElementById('fetch-button')
@@ -134,38 +135,25 @@ let query = `
 
 async function getGitHubContributions() {
   try {
-    const response = await fetch('https://api.github.com/graphql', {
-      method: 'POST',
-      headers: {
-        Authorization: `Bearer ${githubToken}`,
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        query,
-        variables: { userName: githubUsername },
-      }),
-    })
-
+    const response = await fetch('contributions.json') // Assuming the JSON file is in the same directory
     if (!response.ok) {
-      throw new Error('Failed to fetch GitHub data')
+      throw new Error('Failed to fetch JSON data')
     }
 
     const data = await response.json()
-    const contributions =
-      data.data.user.contributionsCollection.contributionCalendar.weeks.flatMap(
-        (week) => week.contributionDays
-      )
+    const contributions = data.contributions.reverse() // Reverse the order of contributions
 
     contributions.forEach((contribution) => {
       const date = new Date(contribution.date)
       const day = date.getDate()
-      const contributionCount = contribution.contributionCount
+      const contributionCount = contribution.count
       const square = document.createElement('li')
       square.dataset.level = contributionCount
+      square.style.backgroundColor = contribution.color
       squares.appendChild(square)
     })
   } catch (error) {
-    console.error('Error fetching GitHub data:', error)
+    console.error('Error loading JSON data:', error)
   }
 }
 
