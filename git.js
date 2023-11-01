@@ -12,7 +12,7 @@ const months = [
   'Aug',
   'Sep',
   'Oct',
-  'Nov'
+  'Nov',
 ]
 // Fetch the contribution data for the user PawanSirsat
 
@@ -176,8 +176,8 @@ window.addEventListener('load', function () {
       8: 40, // August
       9: 40, // September
       10: 40, // October
-      11: 40, // November
-      12: 50, // December
+      11: 45, // November
+      12: 100, // December
     }
 
     const scrollPercentage = scrollPositions[currentMonth]
