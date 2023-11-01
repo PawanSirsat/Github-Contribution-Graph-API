@@ -162,6 +162,30 @@ getGitHubContributions()
 window.addEventListener('load', function () {
   const container = document.querySelector('.graph.ContributionCalendar-label')
   if (container) {
-    container.scrollLeft = container.scrollWidth // Scroll to the maximum right position
+    const currentDate = new Date()
+    const currentMonth = currentDate.getMonth() + 1 // Adding 1 because getMonth() returns a zero-based index
+
+    // Define the scroll percentage for each month
+    const scrollPositions = {
+      1: 0, // January
+      2: 0, // February
+      3: 0, // March
+      4: 0, // April
+      5: 0, // May
+      6: 30, // June
+      7: 30, // July
+      8: 40, // August
+      9: 40, // September
+      10: 40, // October
+      11: 40, // November
+      12: 50, // December
+    }
+
+    const scrollPercentage = scrollPositions[currentMonth]
+
+    if (scrollPercentage !== undefined) {
+      // Scroll to the specified percentage of the container's width
+      container.scrollLeft = (container.scrollWidth * scrollPercentage) / 100
+    }
   }
 })
