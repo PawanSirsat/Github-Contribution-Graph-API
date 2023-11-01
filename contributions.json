@@ -1,4 +1,11 @@
 {
+  "years": [
+    {
+      "year": "2023",
+      "total": 381,
+      "range": { "start": "2023-01-01", "end": "2023-12-30" }
+    }
+  ],
   "contributions": [
     { "date": "2023-12-31", "count": 0, "color": "#161b22", "intensity": "0" },
     { "date": "2023-12-30", "count": 0, "color": "#161b22", "intensity": "0" },

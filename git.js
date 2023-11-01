@@ -21,13 +21,22 @@ document.addEventListener('DOMContentLoaded', function () {
   const usernameInput = document.getElementById('username')
   const userInfoDiv = document.getElementById('user-info')
 
-  function getUserData(username) {
+  async function getUserData(username) {
+    const response2 = await fetch('contributions.json')
+    if (!response2.ok) {
+      throw new Error('Failed to fetch JSON data')
+    }
+    const data1 = await response2.json()
+    console.log(data1)
+    const countributions = data1.years
+
     if (username) {
       fetch(`https://api.github.com/users/${username}`)
         .then((response) => response.json())
         .then((data) => {
           datesegments = data.created_at.split('T').shift().split('-')
 
+          console.log(data)
           userInfoDiv.innerHTML = ` <div class="profile-header">
                             <img id="avatar" src="${data.avatar_url}" alt="">
                             <div class="profile-info-wrapper">
@@ -50,6 +59,12 @@ document.addEventListener('DOMContentLoaded', function () {
                                 <p class="stat-title">Repos</p>
                                 <p id="repos" class="stat-value">${
                                   data.public_repos
+                                }</p>
+                            </div>
+                             <div class="profile-stat">
+                                <p class="stat-title">${data1.years[0].year}</p>
+                                <p id="repos" class="stat-value">${
+                                  data1.years[0].total
                                 }</p>
                             </div>
                             <div class="profile-stat">
