@@ -1,4 +1,4 @@
-let githubToken = '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'
+let githubToken = process.env.TOKEN_API
 let githubUsername = 'PawanSirsat'
 let squares = document.querySelector('.squares')
 const months = [
@@ -68,19 +68,29 @@ document.addEventListener('DOMContentLoaded', function () {
             <div class="profile-bottom-wrapper">
                             <div class="profile-info">
                                 <div class="bottom-icons" style="opacity: 0.5;"><img width="20" height="20" src="https://img.icons8.com/ios-filled/50/FFFFFF/marker.png" alt="marker"/></div>
-                                <p id="location" style="opacity: 0.5;">Pune</p>
+                                <p id="location" style="opacity: 0.5;">${
+                                  data.location
+                                }</p>
                             </div>
                             <div class="profile-info">
                                 <div class="bottom-icons" style="opacity: 0.5;"><img width="20" height="20" src="https://img.icons8.com/ios-filled/50/FFFFFF/link--v1.png" alt="link--v1"/></div>
-                                <a href="https://pawansirsat.github.io/Portfolio-Website/" id="page" style="opacity: 0.5;">https://pawansirsat.github.io/Portfolio-Website/</a>
+                                <a href="${
+                                  data.blog
+                                }" id="page" style="opacity: 0.5;">${
+            data.blog
+          }</a>
                             </div>
                             <div class="profile-info">
                                 <div class="bottom-icons"><img width="20" height="20" src="https://img.icons8.com/ios-filled/50/FFFFFF/twitter.png" alt="twitter"/></div>
-                                <a href="https://twitter.com/sirsat_pawan" id="twitter">sirsat_pawan</a>
+                                <a href="https://twitter.com/${
+                                  data.twitter_username
+                                }" id="twitter">${data.twitter_username}</a>
                             </div>
                             <div class="profile-info">
                                 <div class="bottom-icons" style="opacity: 0.5;"><img width="20" height="20" src="https://img.icons8.com/pastel-glyph/64/FFFFFF/company--v1.png" alt="company--v1"/></div>
-                                <p id="company" style="opacity: 0.5;">Not Available</p>
+                                <p id="company" style="opacity: 0.5;">${
+                                  data.company
+                                }</p>
                             </div>
                         </div>
           `
