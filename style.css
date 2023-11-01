@@ -20,6 +20,7 @@ body {
   color: #fff; /* Change this to your desired text color */
   padding: 10px;
   border-radius: 10px;
+  box-shadow: 0 0 0.5rem #6f6f70;
 }
 
 .navbar img {
