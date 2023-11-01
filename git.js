@@ -1,4 +1,4 @@
-let githubToken = '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'
+let githubToken = process.env.TOKEN_API
 let githubUsername = 'PawanSirsat'
 let squares = document.querySelector('.squares')
 const months = [
