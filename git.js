@@ -12,8 +12,7 @@ const months = [
   'Aug',
   'Sep',
   'Oct',
-  'Nov',
-  'Dec',
+  'Nov'
 ]
 // Fetch the contribution data for the user PawanSirsat
 
