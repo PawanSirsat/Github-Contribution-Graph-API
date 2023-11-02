@@ -1,7 +1,10 @@
 let githubToken = 'dsds'
 let githubUsername = 'PawanSirsat'
+const defaultUsername = 'PawanSirsat'
+
 let squares = document.querySelector('.squares')
-let userAPI = ''
+let userUrl = ''
+let userLogin = ''
 const months = [
   'Jan',
   'Feb',
@@ -28,7 +31,8 @@ document.addEventListener('DOMContentLoaded', function () {
         .then((response) => response.json())
         .then((data) => {
           datesegments = data.created_at.split('T').shift().split('-')
-          userAPI = data
+          userUrl = data.html_url
+          userLogin = data.login
           console.log(data)
           userInfoDiv.innerHTML = ` <div class="profile-header">
                             <img id="avatar" src="${data.avatar_url}" alt="">
@@ -111,7 +115,6 @@ document.addEventListener('DOMContentLoaded', function () {
   })
 
   // Automatically load data for a default GitHub user when the page loads
-  const defaultUsername = 'PawanSirsat'
   getUserData(defaultUsername)
   getGitHubContributions()
 })
@@ -137,7 +140,9 @@ document.addEventListener('DOMContentLoaded', function () {
 async function getGitHubContributions() {
   try {
     const userContDiv = document.getElementById('user-contribution')
-    const response = await fetch('contributions.json') // Assuming the JSON file is in the same directory
+    const response = await fetch('contributions.json') // Assuming the JSON file is in the same
+
+    const userdata = fetch(`https://api.github.com/users/${defaultUsername}`)
     if (!response.ok) {
       throw new Error('Failed to fetch JSON data')
     }
@@ -159,7 +164,7 @@ async function getGitHubContributions() {
     userContDiv.innerHTML = `
     
     <span>${ucount} contributions in ${uyear}</span>
-   <a href="${userAPI.html_url}" id="user-href" target="_blank" >@${userAPI.login}</a>
+   <a href="${userUrl}" id="user-href" target="_blank" >@${userLogin}</a>
     `
   } catch (error) {
     console.error('Error loading JSON data:', error)
