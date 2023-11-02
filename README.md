@@ -48,10 +48,6 @@ This web application allows users to search for GitHub users and view comprehens
 
 Contributions are welcome! If you would like to contribute to this project, please follow the [CONTRIBUTING.md](CONTRIBUTING.md) guidelines.
 
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
-
 ## Acknowledgements
 
 - The application was built as a project for learning web development and GitHub API integration.
