@@ -142,7 +142,6 @@ async function getGitHubContributions() {
     const userContDiv = document.getElementById('user-contribution')
     const response = await fetch('contributions.json') // Assuming the JSON file is in the same
 
-    const userdata = fetch(`https://api.github.com/users/${defaultUsername}`)
     if (!response.ok) {
       throw new Error('Failed to fetch JSON data')
     }
@@ -161,11 +160,24 @@ async function getGitHubContributions() {
       square.style.backgroundColor = contribution.color
       squares.appendChild(square)
     })
-    userContDiv.innerHTML = `
-    
+    fetch(`https://api.github.com/users/${defaultUsername}`)
+      .then((response) => {
+        if (response.ok) {
+          return response.json()
+        } else {
+          throw new Error(
+            `Failed to fetch data from GitHub API for user ${defaultUsername}`
+          )
+        }
+      })
+      .then((userData) => {
+        // You can work with the userData here
+        console.log(userData.login)
+        userContDiv.innerHTML = `
     <span>${ucount} contributions in ${uyear}</span>
-   <a href="${userUrl}" id="user-href" target="_blank" >@${userLogin}</a>
+   <a href="${userData.html_url}" id="user-href" target="_blank" >@${userData.login}</a>
     `
+      })
   } catch (error) {
     console.error('Error loading JSON data:', error)
   }
